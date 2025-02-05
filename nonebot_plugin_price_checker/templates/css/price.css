@@ -1,0 +1,85 @@
+/* 主体样式 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+/* 新增：确保 .platform-cards 容器使用 Flexbox 布局 */
+.platform-cards {
+    display: flex;         /* 启用弹性布局 */
+    justify-content: space-between; /* 使项目均匀分布 */
+    gap: 10px;             /* 元素间距 */
+    flex-wrap: wrap;       /* 允许换行 */
+}
+
+/* 新增：让每个平台的卡片有均等的宽度 */
+.platform-card {
+    flex: 1 1 30%;         /* 让每个卡片在横向上占30%的宽度，保证三列布局 */
+    padding: 10px;
+    box-sizing: border-box; /* 包括 padding 在内的宽度计算 */
+}
+
+/* 新增：给每个平台卡片添加一些基础样式 */
+.platform-card > div {
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* 如果你希望平台名称更突出，可以加一些样式 */
+.platform-card > div > h3 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* 平台卡片容器（默认 PC 端横向布局） */
+#platform-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  /* 确保横向均分 */
+    gap: 20px;
+}
+
+/* 卡片样式 */
+.platform-card {
+    width: calc(33.33% - 20px);  /* 每个卡片宽度均分3等份并减去间隙 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 卡片内容居中 */
+}
+
+.platform-card-dd373 {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+}
+
+.platform-card-7881 {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+}
+
+.platform-card-uu898 {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+}
+
+/* === 移动端优化 === */
+@media (max-width: 768px) {
+    #platform-cards {
+        flex-direction: column; /* 改为纵向布局 */
+        align-items: center;    /* 卡片居中 */
+    }
+
+    .platform-card {
+        width: 90%; /* 调整宽度以适配小屏幕 */
+    }
+}

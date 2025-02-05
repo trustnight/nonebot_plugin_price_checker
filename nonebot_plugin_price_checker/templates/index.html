@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>风华绝代·银价</title>
+</head>
+<body>
+  <h1>风华绝代·银价</h1>
+
+  <!-- 容器 -->
+  <div id="platform-cards">
+    <!-- 动态生成平台卡片 -->
+  </div>
+
+  <script>
+    // 这里是后端替换的 JSON 数据
+    const prices = {DD373_data};
+    console.log("prices 数据:", prices);  // 调试数据
+
+    function createPlatformCard(platformKey, platformData) {
+      if (!platformData) {
+        console.log(`没有找到 ${platformKey} 的数据！`);
+        return;
+      }
+
+      const platformCard = document.createElement("div");
+      platformCard.className = "platform-card platform-card-" + platformKey.toLowerCase();
+
+      const header = document.createElement("h2");
+      header.innerText = platformKey;
+      platformCard.appendChild(header);
+
+      const avgPrice = document.createElement("p");
+      avgPrice.innerHTML = `当前银价：<span>${platformData.current_avg}</span>`;
+      platformCard.appendChild(avgPrice);
+
+      const todayLowest = document.createElement("p");
+      todayLowest.innerHTML = `今日最低：<span>${platformData.today_lowest}</span>`;
+      platformCard.appendChild(todayLowest);
+
+      const yesterdayLowest = document.createElement("p");
+      yesterdayLowest.innerHTML = `昨日最低：<span>${platformData.yesterday_lowest}</span>`;
+      platformCard.appendChild(yesterdayLowest);
+
+      const preYesterdayLowest = document.createElement("p");
+      preYesterdayLowest.innerHTML = `前日最低：<span>${platformData.pre_yesterday_lowest}</span>`;
+      platformCard.appendChild(preYesterdayLowest);
+
+      document.getElementById("platform-cards").appendChild(platformCard);
+    }
+
+    function initPlatforms() {
+      if (Object.keys(prices).length === 0) {
+        console.log("没有数据加载");
+        return;
+      }
+
+      // 遍历并渲染所有平台
+      for (const platformKey in prices) {
+        createPlatformCard(platformKey, prices[platformKey]);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      initPlatforms();
+    });
+  </script>
+</body>
+</html>
