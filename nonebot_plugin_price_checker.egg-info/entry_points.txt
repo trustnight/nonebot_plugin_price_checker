@@ -1,0 +1,2 @@
+[nonebot.plugin]
+price_checker = nonebot_plugin_price_checker:main
