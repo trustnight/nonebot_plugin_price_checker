@@ -4,5 +4,4 @@ aiohttp
 beautifulsoup4
 selenium
 playwright
-sqlite3
 chart.js

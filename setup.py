@@ -11,7 +11,6 @@ setup(
         "beautifulsoup4",  # 用于解析 HTML
         "selenium",  # 用于爬取 7881 数据
         "playwright",  # 用于页面截图渲染
-        "sqlite3",  # 用于数据库操作
         "chart.js",  # 用于图表渲染（前端依赖）
     ],
     entry_points={
