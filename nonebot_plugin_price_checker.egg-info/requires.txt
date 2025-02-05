@@ -4,4 +4,3 @@ aiohttp
 beautifulsoup4
 selenium
 playwright
-chart.js
