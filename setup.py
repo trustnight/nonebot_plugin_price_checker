@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="nonebot-plugin-price-checker",  # 包名，使用驼峰命名
-    version="0.1.0",  # 初始版本，发布时可以调整
+    version="0.1.1",  # 初始版本，发布时可以调整
     packages=find_packages(),  # 自动查找所有模块
     install_requires=[
         "nonebot2",  # NoneBot 的依赖
